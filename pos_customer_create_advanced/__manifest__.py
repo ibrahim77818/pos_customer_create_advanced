@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'POS Customer Search & Quick Create Advanced',
-    'version': '16.0.1.2.0',
+    'version': '18.0.1.2.1',
     'category': 'Sales/Point of Sale',
     'summary': 'Substring phone search, phone pre-filled customer creation and a '
                'per-terminal default customer name for the Point of Sale.',
@@ -13,8 +13,8 @@ POS Customer Search & Quick Create Advanced
   formatting (spaces, dashes, brackets, "+"): typing ``456`` or ``0144567``
   finds ``+1 (555) 014-4567``; Arabic-Indic digits are understood. Works on
   the locally loaded customers and on the server ("Search more" and an
-  automatic server lookup when nothing matches locally, which covers
-  "Limited Partners Loading"). The server search uses a stored digits column
+  automatic server lookup when nothing matches locally: Odoo 18 only loads
+  the 100 most frequent customers in the POS by default). The server search uses a stored digits column
   with a trigram index: milliseconds on a million customers.
 * When a phone search returns no customer, a "Create customer with phone ..."
   action is shown; the new customer form opens with the phone pre-filled.
@@ -26,7 +26,7 @@ POS Customer Search & Quick Create Advanced
   from the POS with a phone but no name is saved under that default name
   instead of being blocked.
 
-Compatible with Odoo 16 Community and Enterprise.
+Compatible with Odoo 18 Community and Enterprise.
     """,
     'author': 'Ibrahim Yahia',
     'website': 'https://www.linkedin.com/in/ibrahim-yahia',
@@ -34,12 +34,11 @@ Compatible with Odoo 16 Community and Enterprise.
     'depends': ['point_of_sale', 'phone_validation'],
     'data': [
         'views/res_config_settings_views.xml',
+        'views/res_partner_views.xml',
     ],
     'assets': {
-        'point_of_sale.assets': [
-            'pos_customer_create_advanced/static/src/scss/pos_customer_create_advanced.scss',
-            'pos_customer_create_advanced/static/src/js/**/*.js',
-            'pos_customer_create_advanced/static/src/xml/**/*.xml',
+        'point_of_sale._assets_pos': [
+            'pos_customer_create_advanced/static/src/**/*',
         ],
         'web.assets_tests': [
             'pos_customer_create_advanced/static/tests/tours/**/*',

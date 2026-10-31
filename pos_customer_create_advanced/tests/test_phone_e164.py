@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from unittest import skipIf
 
-from odoo.tests import TransactionCase, tagged
+from odoo.tests import Form, TransactionCase, tagged
 
 try:
     import phonenumbers  # noqa: F401
@@ -23,11 +23,23 @@ class TestPosPhoneE164(TransactionCase):
         cls.config = cls.env['pos.config'].create({'name': 'CCA Riyadh POS'})
         cls.Partner = cls.env['res.partner']
 
+    def _pos_env(self, config=None):
+        """Context the Odoo 18 POS passes to the contact form (pos_store.js)."""
+        return self.Partner.with_context(pos_cca_config_id=(config or self.config).id)
+
     def _save(self, config=None, **vals):
-        """Same payload as the POS customer form."""
+        """Fill and save the contact form exactly as the cashier does."""
         vals.setdefault('name', 'CCA Customer')
-        vals['pos_config_id'] = (config or self.config).id
-        return self.Partner.browse(self.Partner.create_from_ui(dict(vals)))
+        # Country first, as in the form layout: Odoo 18's own phone onchange
+        # formats a number as soon as it is typed, using the current country.
+        ordered = sorted(vals.items(), key=lambda item: item[0] != 'country_id')
+        with Form(self._pos_env(config), view='base.view_partner_form') as form:
+            for fname, value in ordered:
+                if fname == 'country_id':
+                    form.country_id = self.env['res.country'].browse(value) if value else self.env['res.country']
+                else:
+                    setattr(form, fname, value)
+        return form.record
 
     def test_default_on_new_pos(self):
         self.assertTrue(self.config.phone_e164_enabled)
@@ -69,18 +81,21 @@ class TestPosPhoneE164(TransactionCase):
         self.assertEqual(self._save(phone='ext. 12').phone, 'ext. 12')
 
     def test_option_disabled(self):
+        """Option off: no E.164. Odoo 18's contact form still applies its own
+        phone onchange (international format with spaces): standard behaviour."""
         self.config.phone_e164_enabled = False
-        self.assertEqual(self._save(phone='0500477818').phone, '0500477818')
+        self.assertEqual(self._save(phone='0500477818').phone, '+966 50 047 7818')
 
     def test_not_from_pos(self):
-        """Without a POS configuration (other callers), values are untouched."""
-        partner_id = self.Partner.create_from_ui({'name': 'CCA API', 'phone': '0500477818'})
-        self.assertEqual(self.Partner.browse(partner_id).phone, '0500477818')
+        """Without the POS context (backend, imports, API), values are untouched."""
+        partner = self.Partner.create({'name': 'CCA API', 'phone': '0500477818'})
+        self.assertEqual(partner.phone, '0500477818')
 
     def test_edit_only_changed_numbers(self):
         partner = self.Partner.create({'name': 'CCA Existing', 'phone': '0500477818', 'mobile': '0551112233'})
-        # the POS sends every field; the cashier only changed the mobile
-        self._save(id=partner.id, name='CCA Existing', phone='0500477818', mobile='0559998877')
+        # the form only sends changed fields: the cashier only changed the mobile
+        with Form(partner.with_context(pos_cca_config_id=self.config.id), view='base.view_partner_form') as form:
+            form.mobile = '0559998877'
         self.assertEqual(partner.phone, '0500477818', "Untouched number is left as stored")
         self.assertEqual(partner.mobile, '+966559998877')
 
@@ -88,5 +103,5 @@ class TestPosPhoneE164(TransactionCase):
         partner = self._save(phone='0500477818')
         self.assertEqual(partner.pos_phone_digits, '966500477818')
         # what the POS sends for "0500477818": leading zeros removed
-        found = self.env['res.partner'].search([('pos_phone_digits', 'ilike', '500477818')])
+        found = self.env['res.partner'].search([('pos_phone_digits', 'like', '500477818')])
         self.assertIn(partner, found)

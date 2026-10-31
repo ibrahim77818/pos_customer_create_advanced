@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+from unittest.mock import patch
+
+from odoo.modules.registry import _unaccent
 from odoo.tests import TransactionCase, tagged
 from odoo.tools import sql
 
 from odoo.addons.pos_customer_create_advanced.models.res_partner import (
+    LEGACY_PHONE_DIGITS_INDEX,
     PHONE_DIGITS_INDEX,
     PHONE_DIGITS_SQL,
 )
@@ -25,7 +29,7 @@ class TestPosPhoneDigits(TransactionCase):
     def _search(self, digits):
         """Exactly the domain the POS sends for a phone-like query."""
         return self.env['res.partner'].search([
-            ('pos_phone_digits', 'ilike', digits),
+            ('pos_phone_digits', 'like', digits),
             ('id', 'in', self.all.ids),
         ])
 
@@ -71,3 +75,40 @@ class TestPosPhoneDigits(TransactionCase):
         self.env.cr.execute(
             "SELECT indexdef FROM pg_indexes WHERE indexname = %s", [PHONE_DIGITS_INDEX])
         self.assertIn('gin_trgm_ops', self.env.cr.fetchone()[0])
+
+    def test_search_not_wrapped_in_unaccent(self):
+        """Odoo 18 wraps every `ilike` in unaccent() when the database has that
+        extension, and an index on the plain column is then unusable. The POS
+        searches with `like` (same result on digits), which is never wrapped
+        and is served by the trigram index."""
+        Partner = self.env['res.partner']
+        registry = self.env.registry
+        with patch.object(registry, 'unaccent', _unaccent):
+            query = Partner._search([('pos_phone_digits', 'like', '0144')])
+            code = query.select().code
+            # the same domain with `ilike` would be wrapped: the patch works
+            ilike_code = Partner._search([('pos_phone_digits', 'ilike', '0144')]).select().code
+        self.assertNotIn('unaccent', code)
+        self.assertIn('unaccent', ilike_code)
+        self.assertEqual(self._search('0144'), self.alpha)
+
+        self.env.cr.execute("SELECT 1 FROM pg_extension WHERE extname = 'pg_trgm'")
+        if not self.env.cr.fetchone():
+            return
+        sql_query = query.select()
+        self.env.cr.execute("SET LOCAL enable_seqscan = off")
+        self.env.cr.execute(f"EXPLAIN {sql_query.code}", sql_query.params)
+        plan = '\n'.join(row[0] for row in self.env.cr.fetchall())
+        self.env.cr.execute("SET LOCAL enable_seqscan = on")
+        self.assertIn(PHONE_DIGITS_INDEX, plan)
+
+    def test_legacy_v16_index_replaced(self):
+        """A database upgraded from the 16.0 module keeps one index only."""
+        self.env.cr.execute("SELECT 1 FROM pg_extension WHERE extname = 'pg_trgm'")
+        if not self.env.cr.fetchone():
+            self.skipTest("pg_trgm extension not available in this database")
+        cr = self.env.cr
+        cr.execute(f'CREATE INDEX "{LEGACY_PHONE_DIGITS_INDEX}" ON res_partner USING gin (pos_phone_digits gin_trgm_ops)')
+        self.env['res.partner']._pos_ensure_phone_digits_index()
+        self.assertFalse(sql.index_exists(cr, LEGACY_PHONE_DIGITS_INDEX))
+        self.assertTrue(sql.index_exists(cr, PHONE_DIGITS_INDEX))

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-28 09:00+0000\n"
 "PO-Revision-Date: 2026-10-28 09:00+0000\n"
@@ -22,14 +22,14 @@ msgstr ""
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Create customer"
 msgstr ""
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Create customer with phone"
 msgstr ""
@@ -74,14 +74,14 @@ msgstr ""
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "No customer"
 msgstr ""
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "No customer found for"
 msgstr ""
@@ -100,7 +100,7 @@ msgstr ""
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Searching the server..."
 msgstr ""
@@ -154,8 +154,16 @@ msgid "The \"phonenumbers\" Python library is not installed on the server: numbe
 msgstr ""
 
 #. module: pos_customer_create_advanced
-#. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerDetailsEdit.xml:0
-#, python-format
-msgid "If left empty, saved as"
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.view_partner_form_pos_default_name
+msgid "<span>If left empty, saved as</span>"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_partner__pos_cca_default_name_hint
+msgid "POS Default Customer Name"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_partner__pos_cca_default_name_hint
+msgid "Technical field: name given to a customer created from the Point of Sale without a name (shown as a hint in the customer form opened from the POS)."
 msgstr ""

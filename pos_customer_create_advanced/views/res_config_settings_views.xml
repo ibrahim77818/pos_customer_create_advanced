@@ -5,54 +5,32 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='pos_interface_section']" position="after">
-                <h2 name="pos_customer_onboarding">Customer Onboarding</h2>
-                <div class="row mt16 o_settings_container" id="pos_customer_create_advanced_section">
-                    <div class="col-12 col-lg-6 o_setting_box" id="pos_default_customer_name_setting">
-                        <div class="o_setting_left_pane">
-                            <field name="pos_default_customer_name_enabled"/>
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="pos_default_customer_name_enabled"/>
-                            <div class="text-muted">
-                                Customers created from this POS with a phone number but no name are saved under this name.
-                            </div>
-                            <div class="content-group mt16"
-                                 attrs="{'invisible': [('pos_default_customer_name_enabled', '=', False)]}">
-                                <div class="row">
-                                    <label for="pos_default_customer_name" string="Name" class="col-lg-3 o_light_label"/>
-                                    <field name="pos_default_customer_name"
-                                           placeholder="e.g. Walk-in Customer"
-                                           attrs="{'required': [('pos_default_customer_name_enabled', '=', True)]}"/>
-                                </div>
+            <xpath expr="//block[@id='pos_interface_section']" position="after">
+                <block title="Customer Onboarding" id="pos_customer_create_advanced_section">
+                    <setting id="pos_default_customer_name_setting"
+                             help="Customers created from this POS with a phone number but no name are saved under this name.">
+                        <field name="pos_default_customer_name_enabled"/>
+                        <div class="content-group mt16" invisible="not pos_default_customer_name_enabled">
+                            <div class="row">
+                                <label for="pos_default_customer_name" string="Name" class="col-lg-3 o_light_label"/>
+                                <field name="pos_default_customer_name"
+                                       placeholder="e.g. Walk-in Customer"
+                                       required="pos_default_customer_name_enabled"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box" id="pos_phone_e164_setting">
-                        <div class="o_setting_left_pane">
-                            <field name="pos_phone_e164_enabled"/>
+                    </setting>
+                    <setting id="pos_phone_e164_setting"
+                             help="Save phone numbers with the country code (0500477818 becomes +966500477818), ready for SMS and WhatsApp. Uses the customer's country, or the company's.">
+                        <field name="pos_phone_e164_enabled"/>
+                        <field name="pos_phonenumbers_missing" invisible="1"/>
+                        <div class="alert alert-warning mt8 mb-0" role="alert"
+                             invisible="not pos_phone_e164_enabled or not pos_phonenumbers_missing">
+                            The "phonenumbers" Python library is not installed on the server: numbers are saved as typed. Install it with "pip install phonenumbers" and restart Odoo.
                         </div>
-                        <div class="o_setting_right_pane">
-                            <field name="pos_phonenumbers_missing" invisible="1"/>
-                            <label for="pos_phone_e164_enabled"/>
-                            <div class="text-muted">
-                                Save phone numbers with the country code (0500477818 becomes +966500477818), ready for SMS and WhatsApp. Uses the customer's country, or the company's.
-                            </div>
-                            <div class="alert alert-warning mt8 mb-0" role="alert"
-                                 attrs="{'invisible': ['|', ('pos_phone_e164_enabled', '=', False), ('pos_phonenumbers_missing', '=', False)]}">
-                                The "phonenumbers" Python library is not installed on the server: numbers are saved as typed. Install it with "pip install phonenumbers" and restart Odoo.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box" id="pos_phone_substring_search_info">
-                        <div class="o_setting_right_pane">
-                            <span class="o_form_label">Flexible Phone Search</span>
-                            <div class="text-muted">
-                                Always active: typing any part of a phone or mobile number (e.g. "456") finds the customer, whatever the number formatting.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </setting>
+                    <setting id="pos_phone_substring_search_info" string="Flexible Phone Search"
+                             help="Always active: typing any part of a phone or mobile number (e.g. &quot;456&quot;) finds the customer, whatever the number formatting."/>
+                </block>
             </xpath>
         </field>
     </record>

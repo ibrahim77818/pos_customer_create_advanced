@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_customer_create_advanced.PartnerList" t-inherit="point_of_sale.PartnerList" t-inherit-mode="extension">
+        <!-- Odoo 19 shows "No customers found, press enter to load more." when
+             nothing matches; while a query is typed this module shows its own
+             panel instead, with the create button. -->
+        <xpath expr="//div[hasclass('text-center')][@t-if='!nbrPartners']" position="attributes">
+            <attribute name="t-if">!nbrPartners and !ccaShowEmptyState</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('text-center')][.//i[hasclass('fa-users')]]" position="before">
+            <div t-if="!nbrPartners and ccaShowEmptyState" class="o_cca_empty_state d-flex flex-wrap align-items-center justify-content-between gap-3 m-3 p-3 rounded">
+                <div class="o_cca_empty_message d-flex align-items-center gap-2">
+                    <i class="fa fa-user-plus" role="img" aria-label="No customer" title="No customer"/>
+                    <t t-if="state.ccaSearching or state.loading">
+                        <span class="o_cca_searching">Searching the server...</span>
+                    </t>
+                    <t t-else="">
+                        <span>No customer found for</span>
+                        <strong class="o_cca_query" t-esc="ccaQuery"/>
+                    </t>
+                </div>
+                <button t-if="ccaCanCreate and !(state.ccaSearching or state.loading)" class="o_cca_create_from_search btn btn-lg btn-primary"
+                        t-on-click="() => this.editPartner()">
+                    <t t-if="ccaPhoneFromQuery">
+                        <span>Create customer with phone</span>
+                        <span class="o_cca_phone" t-esc="ccaPhoneFromQuery"/>
+                    </t>
+                    <t t-else="">
+                        <span>Create customer</span>
+                    </t>
+                </button>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

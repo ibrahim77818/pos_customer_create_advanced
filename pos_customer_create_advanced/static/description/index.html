@@ -1,4 +1,4 @@
-<!-- Odoo Apps description page for pos_customer_create_advanced (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<!-- Odoo Apps description page for pos_customer_create_advanced (Odoo 19.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
 <section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
 
   <!-- ============================== HERO ============================== -->
@@ -7,9 +7,9 @@
     <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Customer Search &amp; Quick Create Advanced</h1>
     <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Cashiers find a customer by typing any part of the phone number, in any format, and create a new one in two clicks with the number already filled in. Numbers are saved with their country code (<b>0500477818</b> becomes <b>+966500477818</b>), ready for SMS and WhatsApp.</p>
     <div>
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 19.0</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">27 automated tests</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">33 automated tests</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_customer_create_advanced</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
@@ -18,36 +18,35 @@
 
   <!-- ============================== KEY NUMBERS ============================== -->
   <div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
-    <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 ms</div><div style="font-size:15px;color:#555;">Phone lookup on the server with 1,000,000 customers (indexed)</div></div>
-    <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">Any 3 digits</div><div style="font-size:15px;color:#555;">Match anywhere in the phone or mobile, whatever the formatting</div></div>
+    <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">Auto lookup</div><div style="font-size:15px;color:#555;">Customers not loaded in the POS are found on the server while the cashier types</div></div>
+    <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">Any 3 digits</div><div style="font-size:15px;color:#555;">Match anywhere in the phone number, whatever the formatting</div></div>
     <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">+966&hellip;</div><div style="font-size:15px;color:#555;">Numbers saved in international E.164 format, for every country</div></div>
     <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">2 clicks</div><div style="font-size:15px;color:#555;">From &ldquo;no customer found&rdquo; to a saved customer on the order</div></div>
   </div>
 
   <!-- ============================== WHY THIS MODULE ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 18px;">At a busy counter the phone number is the customer&rsquo;s identity. Standard Odoo 16 makes the cashier type it exactly as it was stored, and stores it exactly as it was typed.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">At a busy counter the phone number is the customer&rsquo;s identity. Standard Odoo 19 already ignores spaces, brackets, dots and dashes and indexes the phone search, but still misses the way cashiers usually type a number, and does not store it in a strict international format.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
     <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
-      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 19</h3>
       <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
-        <li>The customer list only matches the number <b>as it is written</b>: <b>0144567</b> does not find <b>+1 (555) 014-4567</b>.</li>
-        <li>Customers that are not loaded in the POS are only searched when the cashier presses <b>Search more</b>.</li>
+        <li>A number typed the local way does not find the same number stored internationally: <b>0500477818</b> does not find <b>+966500477818</b>, and Arabic-Indic digits do not match Latin ones.</li>
+        <li>The POS only loads the <b>100 most frequent customers</b> by default; everyone else is only searched when the cashier presses <b>Enter</b>.</li>
         <li>When nothing is found, the cashier clicks <b>Create</b> and <b>types the number again</b>.</li>
-        <li>A customer without a name is refused: <b>&ldquo;A Customer Name Is Required&rdquo;</b>, even for a walk-in who only gives a number.</li>
-        <li>Numbers are saved as typed (<b>0500477818</b>), which SMS and WhatsApp gateways reject without the country code.</li>
-        <li>On large customer tables, each server search scans the whole table: up to <b>3 seconds</b> per search with one million customers.</li>
+        <li>The contact form <b>requires a name</b>, even for a walk-in who only gives a number.</li>
+        <li>The phone is saved in a spaced display format (<b>+966 50 047 7818</b>). Odoo keeps a compact copy in a hidden field, but exports, the API and third-party SMS or WhatsApp integrations read the visible number.</li>
       </ul>
     </div>
     <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
       <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
       <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
-        <li>Any digit sequence matches <b>anywhere in the number</b>, ignoring spaces, dashes, brackets, &ldquo;+&rdquo; and leading zeros; Arabic-Indic digits work too.</li>
+        <li>Any digit sequence matches <b>anywhere in the number</b>, ignoring separators and leading zeros; Arabic-Indic digits work too, locally and on the server.</li>
         <li>A phone search with no local match is <b>sent to the server automatically</b> when the cashier pauses typing.</li>
-        <li>A <b>Create customer with phone &hellip;</b> button opens the form with the searched number <b>already filled in</b>.</li>
+        <li>A <b>Create customer with phone &hellip;</b> button opens the contact form with the searched number <b>already filled in</b>.</li>
         <li>Per POS: a configurable <b>Default Customer Name</b> (e.g. <i>Walk-in Customer</i>) is used when the name is left empty.</li>
         <li>Per POS: <b>International Phone Format</b> saves <b>+966500477818</b>, with the right country code for every country.</li>
-        <li>A stored, <b>trigram-indexed</b> digits column answers the same search in about <b>2 milliseconds</b>.</li>
+        <li>Server searches use Odoo 19&rsquo;s own <b>trigram-indexed</b> phone search: same speed as standard, nothing extra to store.</li>
       </ul>
     </div>
   </div>
@@ -64,7 +63,7 @@
 
   <!-- ============================== FEATURES ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots are taken from an Odoo 16 database with demo data: a Riyadh store (company in Saudi Arabia) and customers whose numbers were entered in different formats.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots are taken from an Odoo 19 database with demo data: a Riyadh store (company in Saudi Arabia) and customers whose numbers were entered in different formats.</p>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
@@ -76,7 +75,7 @@
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Find a customer with any part of the number</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Typing <b>456</b> lists every customer whose phone or mobile contains 4-5-6 anywhere: at the end of <b>+966 55 123 4567</b>, in the middle of <b>+966 (50) 456 7890</b>, in the mobile <b>0504561234</b>, even in a number stored with Arabic-Indic digits. Name, email and VAT search keep working as before.</p>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Typing <b>456</b> lists every customer whose phone contains 4-5-6 anywhere: at the end of <b>+966 55 123 4567</b>, in the middle of <b>+966 (50) 456 7890</b> or <b>0504561234</b>, after dots in <b>0533.120.456</b>, even in a number stored with Arabic-Indic digits. Name, email, barcode, VAT and ZIP search keep working as before.</p>
     <img src="pcca_02_search_substring.png" alt="POS customer list filtered by 456, showing customers whose numbers contain 456 in different positions and formats" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
@@ -92,22 +91,22 @@
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">No match? Create the customer with the number already filled in</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">When a search finds nothing (locally, then on the server), the list shows <b>No customer found for &hellip;</b> and a <b>Create customer with phone &hellip;</b> button. The customer form opens with <b>Phone</b> pre-filled and the country of the company selected. The standard <b>Create</b> button pre-fills the phone the same way.</p>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">When a search finds nothing (locally, then on the server), the list shows <b>No customer found for &hellip;</b> and a <b>Create customer with phone &hellip;</b> button. The contact form opens with <b>Phone</b> pre-filled (Odoo 19 shows it straight away in international format). The standard <b>Create</b> button of the customer list pre-fills the phone the same way.</p>
     <img src="pcca_05_no_result_create.png" alt="Empty search result with the button Create customer with phone 0500477818" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-    <img src="pcca_06_prefilled_form.png" alt="New customer form with the phone 0500477818 pre-filled and a hint: if left empty, saved as Walk-in Customer" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <img src="pcca_06_prefilled_form.png" alt="Contact form opened from the POS with the phone pre-filled (shown as +966 50 047 7818) and the hint: if left empty, saved as Walk-in Customer" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Walk-in customers without a name</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Default Customer Name</b> enabled, the form shows <b>If left empty, saved as Walk-in Customer</b>. A customer saved with a phone or mobile but no name gets that name and is set on the order. A typed name always wins, existing customers are never renamed, and with the option off the standard <b>A Customer Name Is Required</b> check applies.</p>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Default Customer Name</b> enabled, the form shows <b>If left empty, saved as Walk-in Customer</b>. A customer saved with a phone number but no name gets that name and is set on the order. A typed name always wins, existing customers are never renamed, child contacts and addresses are left alone, and with the option off the contact form keeps its standard required name.</p>
     <img src="pcca_07_customer_on_order.png" alt="POS order with the customer Walk-in Customer set after saving without a name" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
   </div>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
     <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Saved with the country code, ready for SMS and WhatsApp</h3>
-    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>International Phone Format</b> enabled, <b>Phone</b> and <b>Mobile</b> are saved in E.164: the number typed as <b>0500477818</b> is stored as <b>+966500477818</b>. Formatting uses Odoo&rsquo;s own <b>phone_validation</b> (Google libphonenumber rules), so it works for every country. The cashier still finds the customer by typing <b>0500477818</b>.</p>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>International Phone Format</b> enabled, <b>Phone</b> is saved in E.164: the number typed as <b>0500477818</b> is stored as <b>+966500477818</b>. Formatting uses Odoo&rsquo;s own <b>phone_validation</b> (Google libphonenumber rules), so it works for every country. The cashier still finds the customer by typing <b>0500477818</b>. Odoo 19 has no separate <b>Mobile</b> field any more: <b>Phone</b> is the only number.</p>
     <img src="pcca_08_saved_international.png" alt="Searching 0500477818 finds the new customer saved as +966500477818" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
     <img src="pcca_09_backend_contact.png" alt="Contact form in the backend showing the phone +966500477818" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
     <div style="font-size:13px;color:#777;margin:6px 0 0;">The same customer in <b>Contacts</b>: the stored phone is <b>+966500477818</b>.</div>
@@ -136,35 +135,37 @@
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 10px;">12345</td><td style="padding:10px 10px;">Saudi Arabia</td><td style="padding:10px 10px;">12345 <span style="color:#777;">(not a valid number: kept as typed)</span></td></tr>
     </tbody>
   </table></div>
-  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Country rule:</b> the country selected on the POS customer form (pre-filled with the company&rsquo;s), otherwise the customer&rsquo;s existing country, otherwise the country of the company that owns the Point of Sale. A store in Riyadh therefore saves Saudi numbers without anyone choosing a country; a cashier who selects <i>Egypt</i> gets an Egyptian number.</div>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Country rule:</b> the country selected in the contact form, otherwise the customer&rsquo;s existing country, otherwise the country of the company that owns the Point of Sale. A store in Riyadh therefore saves Saudi numbers without anyone choosing a country; a cashier who selects <i>Egypt</i> gets an Egyptian number. In Odoo 19 the contact form formats a number as soon as it is typed, so choose the country before typing a foreign number.</div>
 
   <!-- ============================== PERFORMANCE ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for large customer bases</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 18px;">Measured on PostgreSQL 16 with 1,000,000 customers: one server search, 30 results, ordered like Odoo.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Measured on PostgreSQL 16 with 1,000,000 customers: one server search, ordered like Odoo. Odoo 19 already indexes its phone search, so the module reuses that index instead of adding its own; the extra matching (leading zeros, Arabic-Indic digits) costs nothing.</p>
   <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:15px;">
-    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Typed</th><th style="text-align:right;padding:10px 14px;">Matches</th><th style="text-align:right;padding:10px 14px;">Standard Odoo 16</th><th style="text-align:right;padding:10px 14px;">With this module</th></tr></thead>
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Typed</th><th style="text-align:right;padding:10px 14px;">Matches</th><th style="text-align:right;padding:10px 14px;">Standard Odoo 19</th><th style="text-align:right;padding:10px 14px;">With this module</th></tr></thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">0551112233 (new customer)</td><td style="text-align:right;padding:10px 14px;">0</td><td style="text-align:right;padding:10px 14px;">3.2 s</td><td style="text-align:right;padding:10px 14px;"><b>1.9 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">757 4187</td><td style="text-align:right;padding:10px 14px;">34</td><td style="text-align:right;padding:10px 14px;">3.3 s</td><td style="text-align:right;padding:10px 14px;"><b>1.3 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">4187</td><td style="text-align:right;padding:10px 14px;">916</td><td style="text-align:right;padding:10px 14px;">0.37 s</td><td style="text-align:right;padding:10px 14px;"><b>3.0 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">456</td><td style="text-align:right;padding:10px 14px;">8,732</td><td style="text-align:right;padding:10px 14px;">0.29 s</td><td style="text-align:right;padding:10px 14px;"><b>6.4 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">0551112233 (new customer)</td><td style="text-align:right;padding:10px 14px;">0</td><td style="text-align:right;padding:10px 14px;">233 ms</td><td style="text-align:right;padding:10px 14px;"><b>225 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">757 4187</td><td style="text-align:right;padding:10px 14px;">34</td><td style="text-align:right;padding:10px 14px;">229 ms</td><td style="text-align:right;padding:10px 14px;"><b>234 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">4187</td><td style="text-align:right;padding:10px 14px;">852</td><td style="text-align:right;padding:10px 14px;">198 ms</td><td style="text-align:right;padding:10px 14px;"><b>202 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">456</td><td style="text-align:right;padding:10px 14px;">6,752</td><td style="text-align:right;padding:10px 14px;">61 ms</td><td style="text-align:right;padding:10px 14px;"><b>57 ms</b></td></tr>
     </tbody>
   </table></div>
-  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>How:</b> a stored <code>pos_phone_digits</code> column (digits of phone and mobile) with a PostgreSQL trigram (GIN) index. On install it is filled in SQL, not record by record: about 22 seconds for one million customers. In the browser, each search runs once per keystroke and server look-ups wait for a pause in typing.</div>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>How:</b> Odoo 19 searches phone numbers through <code>phone_<wbr/>mobile_<wbr/>search</code>, backed by a PostgreSQL trigram (GIN) index. The module sends that search the normalised digits and also searches barcode, VAT and ZIP like standard Odoo. It enables <code>pg_trgm</code> and creates the trigram index if Odoo skipped it. The <code>pos_<wbr/>phone_<wbr/>digits</code> column of earlier versions is not needed any more and is dropped on upgrade. In the browser, server look-ups wait for a pause in typing.</div>
 
   <!-- ============================== CORNER CASES ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
   <p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is handled in the code and most are covered by the tests.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
-    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Limited Partners Loading</b><br/><span style="color:#555;">Customers not loaded in the POS are found by the automatic server lookup, without pressing Search more.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Customers not loaded in the POS</b><br/><span style="color:#555;">Odoo 19 loads the 100 most frequent customers by default (system parameter <code>point_of_<wbr/>sale.<wbr/>limited_<wbr/>customer_<wbr/>count</code>); all others are found by the automatic server lookup, without pressing Enter.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Offline or slow network</b><br/><span style="color:#555;">The automatic lookup fails silently and can be retried; out-of-date answers never overwrite the screen.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Invalid numbers</b><br/><span style="color:#555;">A number that is not valid for the country is saved as typed: the cashier is never blocked.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Editing an existing customer</b><br/><span style="color:#555;">Only the numbers the cashier changed are reformatted; existing customers are never renamed.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>National and international numbers side by side</b><br/><span style="color:#555;">Leading zeros are ignored when searching, so 0500477818 finds both 0500477818 and +966500477818.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Arabic-Indic and Persian digits</b><br/><span style="color:#555;">Converted to 0&ndash;9 for search and formatting, whether they were typed or stored that way.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company, multi-terminal</b><br/><span style="color:#555;">Options are set per Point of Sale; the fallback country is the country of the company that owns that POS.</span></div>
-    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Backend, imports and API untouched</b><br/><span style="color:#555;">Formatting applies only to customers saved from the POS; other ways of creating contacts keep their behaviour.</span></div>
-    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Missing server libraries</b><br/><span style="color:#555;">Without <code>phonenumbers</code>, the settings page warns and numbers are saved as typed. Without <code>pg_trgm</code>, search still works (about 0.24 s on a million customers) and a warning is logged.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Backend, imports and API untouched</b><br/><span style="color:#555;">Formatting and the default name apply only to the contact form opened from the POS; the same form opened from Contacts, imports and API calls keep their behaviour.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Upgrading from 18.0</b><br/><span style="color:#555;">The settings are kept; the old <code>pos_<wbr/>phone_<wbr/>digits</code> column and its index are removed automatically.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Cashiers with restricted rights</b><br/><span style="color:#555;">As in standard Odoo 19, cashiers with the minimal role do not see the Create buttons; they can still search.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Missing server libraries</b><br/><span style="color:#555;">Without <code>phonenumbers</code>, the settings page warns and numbers are saved as typed. Without <code>pg_trgm</code>, search still works, slower on very large customer tables, and a warning is logged.</span></div>
   </div>
 
   <!-- ============================== SECURITY ============================== -->
@@ -173,7 +174,7 @@
   <table style="width:100%;border-collapse:collapse;font-size:15px;">
     <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Can</th></tr></thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User</td><td style="padding:10px 14px;">Search and create customers from the POS, as in standard Odoo.</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User</td><td style="padding:10px 14px;">Search and create customers from the POS, as in standard Odoo. Creating customers needs <b>Extra Rights &rsaquo; Contact Creation</b>, which Odoo gives every new user by default.</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale / Administrator</td><td style="padding:10px 14px;">Change the <b>Customer Onboarding</b> settings of each Point of Sale.</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Standard company rules on customers and POS configurations apply; each POS uses its own company&rsquo;s country.</td></tr>
     </tbody>
@@ -183,13 +184,13 @@
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
   <table style="width:100%;border-collapse:collapse;font-size:15px;">
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code>, <code>phone_validation</code> (both Community; <code>phone_validation</code> is already installed with Discuss)</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">19.0, Community and Enterprise</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code>, <code>phone_<wbr/>validation</code> (both Community; <code>phone_<wbr/>validation</code> is already installed with Discuss)</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;"><code>phonenumbers</code> for the international format (<code>pip install phonenumbers</code> if the settings page reports it missing); PostgreSQL extension <code>pg_trgm</code> recommended (enabled automatically when the database user owns the database)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Customer Onboarding</td></tr>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;"><code>pos.config</code> (3 fields), <code>res.config.settings</code>, <code>res.partner</code> (stored, indexed <code>pos_phone_digits</code>; <code>create_from_ui</code> extended)</td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">POS interface</td><td style="padding:10px 14px;">Customer list, customer form and local customer search extended; no new screen</td></tr>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">27: 22 unit tests (digit search and index, SQL/ORM parity, E.164 for 6 countries, default name rules, settings) and 5 browser tours (substring search with a server-only customer, phone pre-fill, default name, option off, Saudi E.164 flow)</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;"><code>pos.config</code> (3 fields), <code>res.<wbr/>config.<wbr/>settings</code>, <code>res.partner</code> (no new stored field; <code>default_get</code>, <code>create</code> and <code>write</code> extended when the contact form is opened from the POS); contact form <code>base.<wbr/>view_<wbr/>partner_<wbr/>form</code> extended (name optional and hint, only from the POS)</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">POS interface</td><td style="padding:10px 14px;">Customer list dialog, customer search string and <code>PosStore.<wbr/>editPartnerContext</code> extended; no new screen</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">33: 28 unit tests (phone search on Odoo 19&rsquo;s indexed field, trigram index, upgrade from 18.0, E.164 for 6 countries through the contact form, default name rules, settings) and 5 browser tours (substring search with a server-only customer, phone pre-fill, default name, option off, Saudi E.164 flow)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
     </tbody>

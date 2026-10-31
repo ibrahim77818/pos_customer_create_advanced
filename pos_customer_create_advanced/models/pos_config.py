@@ -9,7 +9,7 @@ class PosConfig(models.Model):
     default_customer_name_enabled = fields.Boolean(
         string='Default Customer Name',
         help="When a cashier creates a customer from this Point of Sale with a "
-             "phone (or mobile) number but leaves the name empty, the customer "
+             "phone number but leaves the name empty, the customer "
              "is saved under the default name below instead of being rejected.",
     )
     default_customer_name = fields.Char(
@@ -20,7 +20,7 @@ class PosConfig(models.Model):
     phone_e164_enabled = fields.Boolean(
         string='International Phone Format',
         default=True,
-        help="Phone and mobile numbers typed in this Point of Sale are saved in "
+        help="Phone numbers typed in this Point of Sale are saved in "
              "international E.164 format (e.g. 0500477818 -> +966500477818), "
              "as required by SMS and WhatsApp integrations. The country is the "
              "customer's country, or the company's country when it is not set. "

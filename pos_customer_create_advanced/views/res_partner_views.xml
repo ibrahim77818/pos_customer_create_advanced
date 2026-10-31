@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        The POS creates and edits customers in the standard contact form
+        (action point_of_sale.res_partner_action_edit_pos). These changes only
+        act when the POS passes `pos_cca_default_name` in the context: the name
+        becomes optional and a hint shows the name used when it is left empty.
+        Opened from anywhere else, the form is unchanged.
+    -->
+    <record id="view_partner_form_pos_default_name" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.pos_customer_create_advanced</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Odoo 19: the two name fields (company / individual) have no id -->
+            <xpath expr="//h1/field[@name='name'][@invisible='not is_company']" position="attributes">
+                <attribute name="required">type == 'contact' and not context.get('pos_cca_default_name')</attribute>
+            </xpath>
+            <xpath expr="//h1/field[@name='name'][@invisible='is_company']" position="attributes">
+                <attribute name="required">type == 'contact' and not context.get('pos_cca_default_name')</attribute>
+            </xpath>
+            <xpath expr="//h1[field[@name='name']]" position="after">
+                <div class="o_cca_name_hint text-muted" invisible="not pos_cca_default_name_hint or name or id or parent_id">
+                    <span>If left empty, saved as</span>
+                    <field name="pos_cca_default_name_hint" class="fw-bold ms-1 d-inline"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

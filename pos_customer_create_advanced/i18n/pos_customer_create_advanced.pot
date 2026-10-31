@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_customer_create_advanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-28 09:00+0000\n"
+"PO-Revision-Date: 2026-10-28 09:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Always active: typing any part of a phone or mobile number (e.g. \"456\") finds the customer, whatever the number formatting."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#, python-format
+msgid "Create customer"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#, python-format
+msgid "Create customer with phone"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Customer Onboarding"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Customers created from this POS with a phone number but no name are saved under this name."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_pos_config__default_customer_name_enabled
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_config_settings__pos_default_customer_name_enabled
+msgid "Default Customer Name"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_pos_config__default_customer_name
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_config_settings__pos_default_customer_name
+msgid "Default Customer Name Value"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Flexible Phone Search"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Name"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_pos_config__default_customer_name
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_config_settings__pos_default_customer_name
+msgid "Name given to customers created from this Point of Sale without a name (e.g. 'Walk-in Customer')."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#, python-format
+msgid "No customer"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#, python-format
+msgid "No customer found for"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_partner__pos_phone_digits
+msgid "Phone/Mobile Digits (POS search)"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-python
+#: code:addons/pos_customer_create_advanced/models/pos_config.py:0
+#, python-format
+msgid "Point of Sale \"%s\": set a default customer name or disable the option."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#, python-format
+msgid "Searching the server..."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_partner__pos_phone_digits
+msgid "Technical field: digits of the phone and mobile numbers, used by the Point of Sale to find customers by any part of their number, whatever the formatting (spaces, dashes, brackets, '+')."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_pos_config__default_customer_name_enabled
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_config_settings__pos_default_customer_name_enabled
+msgid "When a cashier creates a customer from this Point of Sale with a phone (or mobile) number but leaves the name empty, the customer is saved under the default name below instead of being rejected."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "e.g. Walk-in Customer"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_pos_config__phone_e164_enabled
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_config_settings__pos_phone_e164_enabled
+msgid "International Phone Format"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_pos_config__phone_e164_enabled
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_config_settings__pos_phone_e164_enabled
+msgid "Phone and mobile numbers typed in this Point of Sale are saved in international E.164 format (e.g. 0500477818 -> +966500477818), as required by SMS and WhatsApp integrations. The country is the customer's country, or the company's country when it is not set. Numbers that are not valid for that country are kept as typed."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,field_description:pos_customer_create_advanced.field_res_config_settings__pos_phonenumbers_missing
+msgid "Pos Phonenumbers Missing"
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model:ir.model.fields,help:pos_customer_create_advanced.field_res_config_settings__pos_phonenumbers_missing
+msgid "Technical: the 'phonenumbers' Python library is not installed on the server."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "Save phone numbers with the country code (0500477818 becomes +966500477818), ready for SMS and WhatsApp. Uses the customer's country, or the company's."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#: model_terms:ir.ui.view,arch_db:pos_customer_create_advanced.res_config_settings_view_form
+msgid "The \"phonenumbers\" Python library is not installed on the server: numbers are saved as typed. Install it with \"pip install phonenumbers\" and restart Odoo."
+msgstr ""
+
+#. module: pos_customer_create_advanced
+#. odoo-javascript
+#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "If left empty, saved as"
+msgstr ""

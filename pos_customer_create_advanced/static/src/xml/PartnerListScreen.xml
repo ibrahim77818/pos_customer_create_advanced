@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PartnerListScreen" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table[hasclass('partner-list')]" position="before">
+            <div t-if="ccaShowEmptyState" class="o_cca_empty_state">
+                <div class="o_cca_empty_message">
+                    <i class="fa fa-user-plus" role="img" aria-label="No customer" title="No customer"/>
+                    <t t-if="state.ccaSearching">
+                        <span class="o_cca_searching">Searching the server...</span>
+                    </t>
+                    <t t-else="">
+                        <span>No customer found for</span>
+                        <strong class="o_cca_query" t-esc="ccaQuery"/>
+                    </t>
+                </div>
+                <div t-if="!state.ccaSearching" class="button highlight o_cca_create_from_search"
+                     t-on-click="() => this.createPartner()">
+                    <t t-if="ccaPhoneFromQuery">
+                        <span>Create customer with phone</span>
+                        <span class="o_cca_phone" t-esc="ccaPhoneFromQuery"/>
+                    </t>
+                    <t t-else="">
+                        <span>Create customer</span>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

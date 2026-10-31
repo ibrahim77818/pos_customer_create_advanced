@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-28 09:00+0000\n"
 "PO-Revision-Date: 2026-10-28 09:00+0000\n"
@@ -23,14 +23,14 @@ msgstr "مفعّل دائمًا: كتابة أي جزء من رقم الهاتف
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Create customer"
 msgstr "إنشاء عميل"
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Create customer with phone"
 msgstr "إنشاء عميل برقم الهاتف"
@@ -75,14 +75,14 @@ msgstr "الاسم الذي يُعطى للعملاء الذين يتم إنشا
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "No customer"
 msgstr "لا يوجد عميل"
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "No customer found for"
 msgstr "لم يتم العثور على عميل لـ"
@@ -101,7 +101,7 @@ msgstr "نقطة البيع \"%s\": حدد اسم عميل افتراضي أو �
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerListScreen.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_list.xml:0
 #, python-format
 msgid "Searching the server..."
 msgstr "جارٍ البحث في الخادم..."
@@ -156,7 +156,7 @@ msgstr "مكتبة بايثون \"phonenumbers\" غير مثبتة على الخ
 
 #. module: pos_customer_create_advanced
 #. odoo-javascript
-#: code:addons/pos_customer_create_advanced/static/src/xml/PartnerDetailsEdit.xml:0
+#: code:addons/pos_customer_create_advanced/static/src/app/partner_editor.xml:0
 #, python-format
 msgid "If left empty, saved as"
 msgstr "إذا تُرك فارغًا، يُحفظ باسم"

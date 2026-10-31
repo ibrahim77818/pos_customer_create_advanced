@@ -3,6 +3,7 @@ from odoo.tests import TransactionCase, tagged
 from odoo.tools import sql
 
 from odoo.addons.pos_customer_create_advanced.models.res_partner import (
+    LEGACY_PHONE_DIGITS_INDEX,
     PHONE_DIGITS_INDEX,
     PHONE_DIGITS_SQL,
 )
@@ -71,3 +72,14 @@ class TestPosPhoneDigits(TransactionCase):
         self.env.cr.execute(
             "SELECT indexdef FROM pg_indexes WHERE indexname = %s", [PHONE_DIGITS_INDEX])
         self.assertIn('gin_trgm_ops', self.env.cr.fetchone()[0])
+
+    def test_legacy_v16_index_replaced(self):
+        """A database upgraded from the 16.0 module keeps one index only."""
+        self.env.cr.execute("SELECT 1 FROM pg_extension WHERE extname = 'pg_trgm'")
+        if not self.env.cr.fetchone():
+            self.skipTest("pg_trgm extension not available in this database")
+        cr = self.env.cr
+        cr.execute(f'CREATE INDEX "{LEGACY_PHONE_DIGITS_INDEX}" ON res_partner USING gin (pos_phone_digits gin_trgm_ops)')
+        self.env['res.partner']._pos_ensure_phone_digits_index()
+        self.assertFalse(sql.index_exists(cr, LEGACY_PHONE_DIGITS_INDEX))
+        self.assertTrue(sql.index_exists(cr, PHONE_DIGITS_INDEX))

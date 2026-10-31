@@ -1,4 +1,4 @@
-<!-- Odoo Apps description page for pos_customer_create_advanced (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<!-- Odoo Apps description page for pos_customer_create_advanced (Odoo 17.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
 <section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
 
   <!-- ============================== HERO ============================== -->
@@ -7,9 +7,9 @@
     <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Customer Search &amp; Quick Create Advanced</h1>
     <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Cashiers find a customer by typing any part of the phone number, in any format, and create a new one in two clicks with the number already filled in. Numbers are saved with their country code (<b>0500477818</b> becomes <b>+966500477818</b>), ready for SMS and WhatsApp.</p>
     <div>
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 17.0</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">27 automated tests</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">28 automated tests</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_customer_create_advanced</span>
       <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
@@ -26,17 +26,17 @@
 
   <!-- ============================== WHY THIS MODULE ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 18px;">At a busy counter the phone number is the customer&rsquo;s identity. Standard Odoo 16 makes the cashier type it exactly as it was stored, and stores it exactly as it was typed.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">At a busy counter the phone number is the customer&rsquo;s identity. Standard Odoo 17 makes the cashier type it exactly as it was stored, and stores it exactly as it was typed.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
     <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
-      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 17</h3>
       <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
         <li>The customer list only matches the number <b>as it is written</b>: <b>0144567</b> does not find <b>+1 (555) 014-4567</b>.</li>
-        <li>Customers that are not loaded in the POS are only searched when the cashier presses <b>Search more</b>.</li>
+        <li>The POS only loads the <b>100 most frequent customers</b>; everyone else is only searched when the cashier presses <b>Search more</b>.</li>
         <li>When nothing is found, the cashier clicks <b>Create</b> and <b>types the number again</b>.</li>
         <li>A customer without a name is refused: <b>&ldquo;A Customer Name Is Required&rdquo;</b>, even for a walk-in who only gives a number.</li>
         <li>Numbers are saved as typed (<b>0500477818</b>), which SMS and WhatsApp gateways reject without the country code.</li>
-        <li>On large customer tables, each server search scans the whole table: up to <b>3 seconds</b> per search with one million customers.</li>
+        <li>On large customer tables, each server search scans the whole table: up to <b>4 seconds</b> per search with one million customers.</li>
       </ul>
     </div>
     <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
@@ -64,7 +64,7 @@
 
   <!-- ============================== FEATURES ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots are taken from an Odoo 16 database with demo data: a Riyadh store (company in Saudi Arabia) and customers whose numbers were entered in different formats.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots are taken from an Odoo 17 database with demo data: a Riyadh store (company in Saudi Arabia) and customers whose numbers were entered in different formats.</p>
 
   <div style="margin:44px 0 0;">
     <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
@@ -140,14 +140,14 @@
 
   <!-- ============================== PERFORMANCE ============================== -->
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for large customer bases</h2>
-  <p style="font-size:16px;color:#555;margin:0 0 18px;">Measured on PostgreSQL 16 with 1,000,000 customers: one server search, 30 results, ordered like Odoo.</p>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Measured on PostgreSQL 16 with 1,000,000 customers: one server search, 30 results, ordered like Odoo. The standard column runs the exact SQL generated by Odoo 17&rsquo;s POS customer search.</p>
   <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:15px;">
-    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Typed</th><th style="text-align:right;padding:10px 14px;">Matches</th><th style="text-align:right;padding:10px 14px;">Standard Odoo 16</th><th style="text-align:right;padding:10px 14px;">With this module</th></tr></thead>
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Typed</th><th style="text-align:right;padding:10px 14px;">Matches</th><th style="text-align:right;padding:10px 14px;">Standard Odoo 17</th><th style="text-align:right;padding:10px 14px;">With this module</th></tr></thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">0551112233 (new customer)</td><td style="text-align:right;padding:10px 14px;">0</td><td style="text-align:right;padding:10px 14px;">3.2 s</td><td style="text-align:right;padding:10px 14px;"><b>1.9 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">757 4187</td><td style="text-align:right;padding:10px 14px;">34</td><td style="text-align:right;padding:10px 14px;">3.3 s</td><td style="text-align:right;padding:10px 14px;"><b>1.3 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">4187</td><td style="text-align:right;padding:10px 14px;">916</td><td style="text-align:right;padding:10px 14px;">0.37 s</td><td style="text-align:right;padding:10px 14px;"><b>3.0 ms</b></td></tr>
-      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">456</td><td style="text-align:right;padding:10px 14px;">8,732</td><td style="text-align:right;padding:10px 14px;">0.29 s</td><td style="text-align:right;padding:10px 14px;"><b>6.4 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">0551112233 (new customer)</td><td style="text-align:right;padding:10px 14px;">0</td><td style="text-align:right;padding:10px 14px;">3.8 s</td><td style="text-align:right;padding:10px 14px;"><b>1.5 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">757 4187</td><td style="text-align:right;padding:10px 14px;">34</td><td style="text-align:right;padding:10px 14px;">3.6 s</td><td style="text-align:right;padding:10px 14px;"><b>1.2 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">4187</td><td style="text-align:right;padding:10px 14px;">916</td><td style="text-align:right;padding:10px 14px;">0.36 s</td><td style="text-align:right;padding:10px 14px;"><b>3.0 ms</b></td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">456</td><td style="text-align:right;padding:10px 14px;">8,732</td><td style="text-align:right;padding:10px 14px;">0.28 s</td><td style="text-align:right;padding:10px 14px;"><b>5.2 ms</b></td></tr>
     </tbody>
   </table></div>
   <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>How:</b> a stored <code>pos_phone_digits</code> column (digits of phone and mobile) with a PostgreSQL trigram (GIN) index. On install it is filled in SQL, not record by record: about 22 seconds for one million customers. In the browser, each search runs once per keystroke and server look-ups wait for a pause in typing.</div>
@@ -156,7 +156,7 @@
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
   <p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is handled in the code and most are covered by the tests.</p>
   <div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
-    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Limited Partners Loading</b><br/><span style="color:#555;">Customers not loaded in the POS are found by the automatic server lookup, without pressing Search more.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Customers not loaded in the POS</b><br/><span style="color:#555;">Odoo 17 loads only the 100 most frequent customers; all others are found by the automatic server lookup, without pressing Search more.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Offline or slow network</b><br/><span style="color:#555;">The automatic lookup fails silently and can be retried; out-of-date answers never overwrite the screen.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Invalid numbers</b><br/><span style="color:#555;">A number that is not valid for the country is saved as typed: the cashier is never blocked.</span></div>
     <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Editing an existing customer</b><br/><span style="color:#555;">Only the numbers the cashier changed are reformatted; existing customers are never renamed.</span></div>
@@ -173,7 +173,7 @@
   <table style="width:100%;border-collapse:collapse;font-size:15px;">
     <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Can</th></tr></thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User</td><td style="padding:10px 14px;">Search and create customers from the POS, as in standard Odoo.</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User</td><td style="padding:10px 14px;">Search and create customers from the POS, as in standard Odoo. Creating customers needs <b>Extra Rights &rsaquo; Contact Creation</b>, which Odoo gives every new user by default.</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale / Administrator</td><td style="padding:10px 14px;">Change the <b>Customer Onboarding</b> settings of each Point of Sale.</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Standard company rules on customers and POS configurations apply; each POS uses its own company&rsquo;s country.</td></tr>
     </tbody>
@@ -183,13 +183,13 @@
   <h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
   <table style="width:100%;border-collapse:collapse;font-size:15px;">
     <tbody>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">17.0, Community and Enterprise</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code>, <code>phone_validation</code> (both Community; <code>phone_validation</code> is already installed with Discuss)</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;"><code>phonenumbers</code> for the international format (<code>pip install phonenumbers</code> if the settings page reports it missing); PostgreSQL extension <code>pg_trgm</code> recommended (enabled automatically when the database user owns the database)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Customer Onboarding</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;"><code>pos.config</code> (3 fields), <code>res.config.settings</code>, <code>res.partner</code> (stored, indexed <code>pos_phone_digits</code>; <code>create_from_ui</code> extended)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">POS interface</td><td style="padding:10px 14px;">Customer list, customer form and local customer search extended; no new screen</td></tr>
-      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">27: 22 unit tests (digit search and index, SQL/ORM parity, E.164 for 6 countries, default name rules, settings) and 5 browser tours (substring search with a server-only customer, phone pre-fill, default name, option off, Saudi E.164 flow)</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">28: 23 unit tests (digit search and index, upgrade from the 16.0 index, SQL/ORM parity, E.164 for 6 countries, default name rules, settings) and 5 browser tours (substring search with a server-only customer, phone pre-fill, default name, option off, Saudi E.164 flow)</td></tr>
       <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic</td></tr>
       <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
     </tbody>

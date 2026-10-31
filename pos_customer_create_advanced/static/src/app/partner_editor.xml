@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_customer_create_advanced.PartnerDetailsEdit" t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//input[@name='name']" position="after">
+            <span t-if="ccaShowDefaultNameHint" class="o_cca_name_hint align-self-center text-nowrap">
+                <span>If left empty, saved as</span>
+                <b t-esc="ccaDefaultCustomerName"/>
+            </span>
+        </xpath>
+    </t>
+
+</templates>

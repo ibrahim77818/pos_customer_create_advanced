@@ -19,7 +19,12 @@ _TO_ASCII_DIGITS = str.maketrans(_EASTERN_DIGITS, _ASCII_DIGITS)
 POS_PHONE_FIELDS = ('phone', 'mobile')
 
 PHONE_DIGITS_COLUMN = 'pos_phone_digits'
-PHONE_DIGITS_INDEX = 'res_partner_pos_phone_digits_index'  # same name Odoo gives field indexes
+# Odoo 17 names field indexes '<table>__<column>_index'; use its own helper so
+# the registry recognises this index as the one of `index='trigram'`.
+PHONE_DIGITS_INDEX = sql.make_index_name('res_partner', PHONE_DIGITS_COLUMN)
+# Name used by the Odoo 16 version of this module ('<table>_<column>_index').
+# Dropped on databases upgraded from 16 so the index is not built twice.
+LEGACY_PHONE_DIGITS_INDEX = 'res_partner_pos_phone_digits_index'
 
 # SQL equivalent of `_compute_pos_phone_digits`, used to backfill the column on
 # install without loading every partner in the ORM (seconds instead of minutes
@@ -96,7 +101,9 @@ class ResPartner(models.Model):
             if existing and existing[fname] == number:
                 continue
             number = number.strip()
-            formatted = self._phone_format(number, country=country, force_format='E164')
+            # Odoo 17 API: keyword arguments, returns False when the number
+            # cannot be formatted (Odoo 16 returned the input unchanged).
+            formatted = self._phone_format(number=number, country=country, force_format='E164')
             vals[fname] = formatted or number
         return vals
 
@@ -141,6 +148,9 @@ class ResPartner(models.Model):
         Without the extension the search still works, with a sequential scan
         of this single short column."""
         cr = self.env.cr
+        if sql.index_exists(cr, LEGACY_PHONE_DIGITS_INDEX):
+            sql.drop_index(cr, LEGACY_PHONE_DIGITS_INDEX, self._table)
+            _logger.info("pos_customer_create_advanced: dropped Odoo 16 index %s", LEGACY_PHONE_DIGITS_INDEX)
         if sql.index_exists(cr, PHONE_DIGITS_INDEX):
             return
         try:

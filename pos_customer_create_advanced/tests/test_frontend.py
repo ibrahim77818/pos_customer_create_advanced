@@ -21,17 +21,22 @@ class TestPosCustomerCreateAdvancedTours(TestPointOfSaleHttpCommon):
         cls.partner_alpha = Partner.create({'name': 'CCA Alpha Customer', 'phone': '+1 (555) 014-4567'})
         cls.partner_beta = Partner.create({'name': 'CCA Beta Customer', 'mobile': '+966 50 999 8877'})
         cls.default_name = 'CCA Walk-in Customer'
+        # Odoo 17's test cashier is created without "Contact Creation"; real
+        # users get it from the default user template. The tours create
+        # customers, as a cashier does at the counter.
+        cls.pos_user.groups_id += cls.env.ref('base.group_partner_manager')
         # Tours 1-4 check numbers exactly as typed; tour 5 enables the format.
         cls.main_pos_config.phone_e164_enabled = False
 
     def _run_pos_tour(self, tour_name):
-        self.main_pos_config.open_ui()
+        # Odoo 17 runs POS tours as the cashier (point_of_sale.group_pos_user)
+        self.main_pos_config.with_user(self.pos_user).open_ui()
         # Tests run before the modules are flagged installed; the POS only
         # loads the QWeb templates of installed modules.
         self.env['ir.module.module'].search([
             ('name', 'in', ('point_of_sale', 'pos_customer_create_advanced')),
         ]).write({'state': 'installed'})
-        self.start_tour('/pos/ui?config_id=%d' % self.main_pos_config.id, tour_name, login='accountman')
+        self.start_tour('/pos/ui?config_id=%d' % self.main_pos_config.id, tour_name, login='pos_user')
 
     def _partners_with_phone(self, phone):
         return self.env['res.partner'].search([('phone', '=', phone)])
